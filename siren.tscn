@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dji4x1n6ukgnh"]
+
+[ext_resource type="Texture2D" uid="uid://bjcbb8e643c1t" path="res://police-car-light_1f6a8.png" id="1_k4kiq"]
+[ext_resource type="Script" path="res://siren.gd" id="1_y3001"]
+[ext_resource type="AudioStream" uid="uid://dhv56kau5r3ug" path="res://siren-godot.mp3" id="2_cdkrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asbm2"]
+size = Vector2(122, 158)
+
+[node name="Siren" type="Node2D"]
+script = ExtResource("1_y3001")
+
+[node name="siren_sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-32, 288)
+stream = ExtResource("2_cdkrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k4kiq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_asbm2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

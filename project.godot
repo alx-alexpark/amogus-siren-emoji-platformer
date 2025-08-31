@@ -15,6 +15,11 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameController="*res://game_controller.gd"
+EventController="*res://event_controller.gd"
+
 [input]
 
 jump={
